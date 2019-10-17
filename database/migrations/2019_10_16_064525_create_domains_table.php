@@ -19,9 +19,8 @@ class CreateDomainsTable extends Migration
         Schema::create('domains', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('value');
             $table->unsignedBigInteger('owner');
-            $table->string('ns1');
-            $table->string('ns2');
             $table->enum('status', [ 'inactive', 'active', 'pending' ])->default('inactive')->nullable(false);
             $table->timestamps();
 

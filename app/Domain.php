@@ -1,7 +1,6 @@
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Iodev\Whois\Whois;
 
 /**
  * Class Domain
@@ -9,4 +8,11 @@ use Iodev\Whois\Whois;
  */
 class Domain extends Model
 {
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function owner()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
